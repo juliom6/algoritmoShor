@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel} % espanol, ingles
+\usepackage[utf8]{inputenc}
+%\usepackage[round,sort,nonamebreak]{natbib}
+
+\title{M\'etodo alternativo de multiplicaci\'on}
+\author{Julio Delgado\\ {\tt juliom6@gmail.com}}
+\date{Enero 2016}
+\usepackage{ulem}
+\usepackage{cancel}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{fourier}
+\usepackage{ragged2e}
+\usepackage{amsthm}
+
+\newtheorem{teorema}{Teorema}
+\theoremstyle{definition}
+\newtheorem{definicion}{Definici\'on}
+
+\begin{document}
+\maketitle
+
+Sin duda la multiplicaci\'on es una operaci\'on fundamental en nuestras vidas. Desde su aprendizaje en la escuela, la utilizamos diariamente para realizar muchos c\'alculos. Siendo un procedimiento tan simple de hacer, pocas veces nos hemos detenido a pensar si existe alguna forma m\'as simple o r\'apida de llevarla a cabo. Por ejemplo, si multiplicamos los n\'umeros 45 y 24 proceder\'iamos del siguiente modo
+\setlength{\arrayrulewidth}{.08em}
+\[
+\begin{array}{ccccc}
+ &  & 4 & 5 & \times\\
+ &  & 2 & 4 & \\ \cline{2-4}
+ & 1 & 8 & 0 & \\
+ & 9 & 0 &  & \\ \cline{1-4}
+1 & 0 & 8 & 0 & \\
+\end{array}
+\]
+
+
+Este m\'etodo de multiplicaci\'on requiere de la memorizaci\'on de tablas de multiplicar que son muy conocidas por la mayor\'ia de nosotros. A continuaci\'on, presentamos un procedimiento alternativo que no requiere la memorizaci\'on de dichas tablas. El m\'etodo consiste de formar una tabla (no del mismo tipo que las ya mencionadas) con los n\'umeros que deseamos multiplicar, que en nuestro ejemplo anterior ser\'ia as\'i
+\[
+\begin{array}{rcccr}
+45 &  & \times &  & 24 \\
+\end{array}
+\]
+
+En la primera columna de la tabla dividiremos el primer n\'umero por 2. Dicha divisi\'on es hecha sin tener en cuenta el residuo que pueda resultar, operaci\'on que es conocida como \textit{divisi\'on entera}. Por ejemplo, $45 \div 2$ da como cociente 22 y residuo 1, es este residuo que ignoramos y colocamos el n\'umero 22 en la tabla justo debajo del 45
+
+\[
+\begin{array}{rcccr}
+45 &  & \times &  & 24 \\
+22 &  &        &  &  \\
+ &  &        &  &  \\
+\end{array}
+\]
+
+Procedemos del mismo modo hasta terminar con el n\'umero 1 en la \'ultima posici\'on de la tabla (esto siempre puede ser hecho, ¿por qu\'e?)
+
+\[
+\begin{array}{rcccr}
+45 &  & \times &  & 24 \\
+22 &  &        &  &  \\
+11 &  &        &  &  \\
+5 &  &        &  &  \\
+2 &  &        &  &  \\
+1 &  &        &  &  \\
+\end{array}
+\]
+
+Luego, en la segunda columna de la tabla multiplicamos el segundo n\'umero por 2 sucesivamente hasta igualar la cantidad de n\'umeros en la primera columna
+
+\[
+\begin{array}{rcccr}
+45 &  & \times &  & 24 \\
+22 &  &        &  & 48 \\
+11 &  &        &  & 96 \\
+5 &  &        &  & 192 \\
+2 &  &        &  & 384 \\
+1 &  &        &  & 768 \\
+\end{array}
+\]
+
+A continuaci\'on, vamos a descartar todas las filas de la tabla en las que exista un n\'umero par en la primera columna. En nuestro ejemplo, descartamos las filas correspondientes a los n\'umeros 22 y 2
+
+\[
+\begin{array}{rcccr}
+45 &  & \times &  & 24 \\
+\cancel{22} &  &        &  & \cancel{48}\\
+11 &  &        &  & 96 \\
+ 5 &  &        &  & 192 \\
+ \cancel{2} &  &        &  & \cancel{384} \\
+ 1 &  &        &  & 768 \\
+\end{array}
+\]
+
+Finalmente sumamos todos los n\'umeros que quedaron en la segunda columna y obtenemos el resultado que esperabamos
+
+\setlength{\arrayrulewidth}{.08em}
+% \[
+% \begin{array}{ccccccc}
+% 4 & 5 &  & \times &   & 2 & 4 \\
+% 2 & 2 &  &        &   & 4 & 8 \\
+% 1 & 1 &  &        &   & 9 & 6 \\
+%   & 5 &  &        & 1 & 9 & 2 \\
+%   & 2 &  &        & 3 & 8 & 4 \\
+%   & 1 &  &        & 7 & 6 & 8 \\
+%   &   &  &    1   & 0 & 8 & 0 \\
+% \end{array}
+% \]
+
+% \[
+% \begin{array}{ccccc}
+% 45 &  & \times &  & 24 \\
+% 22 &  &        &  & 48 \\
+% 11 &  &        &  & 96 \\
+%  5 &  &        &  & 192 \\
+%  2 &  &        &  & 384 \\
+%  1 &  &        &  & 768 \\ \cline{5-5}
+%    &  &        &  & 1080 \\
+% \end{array}
+% \]
+
+\[
+\begin{array}{rcccr}
+45 &  & \times &  & 24 \\
+\cancel{22} &  &        &  & \cancel{48}\\
+%\cancel{22} &  &        &  & \xout{48}\\
+11 &  &        &  & 96 \\
+ 5 &  &        &  & 192 \\
+ \cancel{2} &  &        &  & \cancel{384} \\
+ 1 &  &        &  & 768 \\ \cline{5-5}
+   &  &        &  & 1080 \\
+\end{array}
+\]
+
+¿Sorprendente verdad? Quiz\'a si nos ense\~naran este m\'etodo en la escuela nos evitar\'iamos algunas reprensiones ocasionadas por el tedioso proceso de memorizar tablas. El siguiente paso es probar que este procedimiento siempre obtiene el resultado correcto y lo haremos en una segunda parte de este art\'iculo, mientras tanto intente descrubrir por su cuenta por qu\'e funciona este m\'etodo y si despu\'es a\'un tiene curiosidad sobre estos temas puede echar un vistazo al libro cl\'asico sobre algoritmia de \citet{Brassard}, mientras tanto ¡ya tenemos entretenimiento para el fin de semana!
+
+\bibliographystyle{plainnat-ime}
+\bibliography{references}
+\end{document}
